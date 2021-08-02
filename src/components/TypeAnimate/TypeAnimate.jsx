@@ -3,17 +3,16 @@ import styled from 'styled-components';
 
 const TypeAnimate = (props) => {
   const { children } = props;
+  console.log(children);
   const getScatterWord = (word) => {
 
     const chars = word.split("");
 
     return (
         <>
-        <span class="word"> 
-            {chars.map(char => {
-                return (<>{ char }</>)
-            })}
-        </span>
+        {chars.map(char => {
+            return (<>{ char }</>)
+        })}
         <span> </span>
         </>
     )
@@ -37,7 +36,8 @@ const TypeAnimate = (props) => {
       return getScatterElements(content);
     } else {
       if(content.props) {
-        return processChildrenForScatterfication(content.props.children);
+        const children = content.props.children;
+        return React.cloneElement(content, { children: processChildrenForScatterfication(children) });
       } else {
         return content.map(child => {
           return processChildrenForScatterfication(child);
