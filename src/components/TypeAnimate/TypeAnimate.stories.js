@@ -11,7 +11,9 @@ export default {
 export const Default = () => {
   return (
     <div style={{width: '100%', height: '100vh'}}>
-       <TypeAnimate />
+       <TypeAnimate>
+          UP TO <span>80%</span> OFF 
+       </TypeAnimate>
     </div>
   );
 }
