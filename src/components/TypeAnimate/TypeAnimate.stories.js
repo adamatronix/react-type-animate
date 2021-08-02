@@ -9,15 +9,21 @@ export default {
   }
 };
 
+const MainText = styled.h1`
+  position: relative;
+  font-size: 55px;
+  font-weight: normal;
+`
+
 const Percentage = styled.span`
   font-style: italic;
 `
 
 export const Default = () => {
   return (
-    <div style={{width: '100%', height: '100vh'}}>
+    <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
        <TypeAnimate>
-          UP TO <Percentage>80%</Percentage> OFF 
+          <MainText>UP TO <Percentage>80%</Percentage> OFF</MainText>
        </TypeAnimate>
     </div>
   );

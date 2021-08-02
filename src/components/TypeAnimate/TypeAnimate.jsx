@@ -47,7 +47,7 @@ const TypeAnimate = (props) => {
   }
 
   return (
-    <div>{ processChildrenForScatterfication(children) }</div>
+    <>{ processChildrenForScatterfication(children) }</>
   )
 }
 
