@@ -1,9 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import AnimationManager from '../../utils/AnimationManager';
 
 const TypeAnimate = (props) => {
   const { children } = props;
   const charRefs = useRef([]);
+
+  useEffect(() => {
+    const manager = new AnimationManager(charRefs.current);
+    manager.startEngine();
+  }, []);
 
   const getScatterWord = (word) => {
 
