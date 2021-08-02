@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 const TypeAnimate = (props) => {
   const { children } = props;
-  console.log(children);
+  const charRefs = useRef([]);
+
   const getScatterWord = (word) => {
 
     const chars = word.split("");
@@ -11,7 +12,7 @@ const TypeAnimate = (props) => {
     return (
         <>
         {chars.map(char => {
-            return (<>{ char }</>)
+            return (<span ref={el => charRefs.current.push(el)}>{ char }</span>)
         })}
         <span> </span>
         </>
