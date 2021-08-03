@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import AnimationManager from '../../utils/AnimationManager';
 
 const TypeAnimate = (props) => {
   const { children } = props;
-  console.log(children);
+  const charRefs = useRef([]);
+
+  useEffect(() => {
+    const manager = new AnimationManager(charRefs.current);
+    manager.startEngine();
+  }, []);
+
   const getScatterWord = (word) => {
 
     const chars = word.split("");
@@ -11,7 +18,7 @@ const TypeAnimate = (props) => {
     return (
         <>
         {chars.map(char => {
-            return (<>{ char }</>)
+            return (<span ref={el => charRefs.current.push(el)}>{ char }</span>)
         })}
         <span> </span>
         </>
